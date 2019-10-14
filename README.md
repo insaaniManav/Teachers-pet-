@@ -32,7 +32,7 @@ Additional notes about how to deploy this on a live system
 
 * **Jasmeet Singh** - [jasmeet0915](https://github.com/jasmeet0915)
 * **Manav Sethi** - [manav1234](https://github.com/manav1234)
-* **Ishan Goswami** - [](https://github.com/)
+* **Ishan Goswami** - [ishan-goswami](https://github.com/ishan-goswami)
 * **Aayush Vats** - [aayushvats](https://github.com/aayushvats)
 
 ## License
