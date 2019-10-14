@@ -1,3 +1,4 @@
+# Attendancily
 
 Attendancily is an android application to manage a device which monitors a student's activities.
 
