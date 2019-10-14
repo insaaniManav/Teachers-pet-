@@ -30,7 +30,7 @@ Additional notes about how to deploy this on a live system
 
 ## Authors
 
-* **Jasmeet Singh** - [](https://github.com/)
+* **Jasmeet Singh** - [jasmeet0915](https://github.com/jasmeet0915)
 * **Manav Sethi** - [manav1234](https://github.com/manav1234)
 * **Ishan Goswami** - [](https://github.com/)
 * **Aayush Vats** - [aayushvats](https://github.com/aayushvats)
