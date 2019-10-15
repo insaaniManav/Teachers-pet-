@@ -23,16 +23,17 @@ apart from this from the cumulative attendace score of the class over a particul
 ## Deployment
 For this the following dependancies need to be installed in python 
 * [opencv](https://answers.opencv.org/question/2372/installing-opencv-on-windows7-machine/)-The open computer vision library 
-* [dlib]
-* [imultils]
-* [numpy]
+* [dlib](https://pypi.org/project/dlib/)-A toolkit for making real world machine learning and data analysis applications
+* [imultils](https://pypi.org/project/imutils/)A series of convenience functions to make basic image processing functions such as translation, rotation, resizing, skeletonization, displaying Matplotlib images, sorting contours, detecting edges,
+* [numpy](https://numpy.org/)- fundamental package for scientific computing in Python. I
+* [playsound](https://pypi.org/project/playsound/)-Pure Python, cross platform, single function module with no dependencies for playing sounds.
+*
 
 ## Built With
 
 * [Flutter](https://flutter.dev) - The android framework used
 * [Dart](https://dart.dev) - Dependency Management
-* [Raspberry Pi]() -
-* [Python];
+* [Python](https://www.python.org/)-Hgh Level Programming language
 
 ## Authors
 
@@ -43,4 +44,4 @@ For this the following dependancies need to be installed in python
 
 ## License
 
-This project is licensed under the License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under GNU GPL 3.0 - see the [LICENSE.md](https://github.com/manav1234/attendancily/blob/master/LICENSE) file for details
