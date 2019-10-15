@@ -12,7 +12,7 @@ def shape_to_bb(shape):
     return x, y, w, h
 
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(-1)
 detector = dlib.get_frontal_face_detector()
 
 #imgpath = "/home/jasmeet/PycharmProjects/opencv_playground/opencv_and_dlib/face_recognition/testing/11.jpg"
@@ -27,30 +27,29 @@ embedder = cv2.dnn.readNetFromTorch(embedder_path)
 
 while True:
     _, img = cap.read()
+    print(img.shape)
+    img = cv2.resize(img, (img.shape[1] // 2, img.shape[0] // 2))
     img = cv2.flip(img, 0)
-    img = cv2.resize(img, (300, 300))
     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-
     rects = detector(img_gray, 1)
-    if len(rects) > 0:
-        for rect in rects:
-            (x, y, w, h) = shape_to_bb(rect)
-            face_roi = img[y:y+h, x:x+w]
-            face_roi = cv2.resize(face_roi, (96, 96))
-            face_blob = cv2.dnn.blobFromImage(face_roi, 1.0 / 255, (96, 96), (0, 0, 0), swapRB=True, crop=False)
-            embedder.setInput(face_blob)
-            vec = embedder.forward()
+    for rect in rects:
+        (x, y, w, h) = shape_to_bb(rect)
+        cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 2)
+        face_roi = img[y:y+h, x:x+w]
+        face_roi = cv2.resize(face_roi, (96, 96))
+        face_blob = cv2.dnn.blobFromImage(face_roi, 1.0 / 255, (96, 96), (0, 0, 0), swapRB=True, crop=False)
+        embedder.setInput(face_blob)
+        vec = embedder.forward()
 
-            preds = classifier.predict_proba(vec)[0]
-            j = np.argmax(preds)
-            proba = preds[j]
-            name = le.classes_[j]
-            text = "{}: {:.2f}%".format(name, proba * 100)
-            cv2.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2)
-            Y = y-10
-            cv2.putText(img, text, (x, Y), cv2.FONT_HERSHEY_SIMPLEX, 0.45, (0, 0, 255), 2)
+        preds = classifier.predict_proba(vec)[0]
+        j = np.argmax(preds)
+        proba = preds[j]
+        name = le.classes_[j]
+        text = "{}: {:.2f}%".format(name, proba * 100)
+        Y = y-10
+        cv2.putText(img, text, (x, Y), cv2.FONT_HERSHEY_SIMPLEX, 0.45, (0, 0, 255), 2)
 
-    cv2.imshow("img", img)
+    cv2.imshow("video", img)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
