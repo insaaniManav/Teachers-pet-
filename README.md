@@ -1,6 +1,5 @@
 # Teacher's Pet 
-
-Attendancily is an android application to manage a device which monitors a student's activities.
+Teachers pet is an android application to manage a device which monitors a student's activities.
 
 ## How does it operate
 
